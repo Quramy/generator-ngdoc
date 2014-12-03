@@ -1,0 +1,13 @@
+{
+  "staticFiles": [
+  ],
+  "dotFiles": [
+    "gitignore"
+  ],
+  "templates": [
+    "package.json",
+    "bower.json",
+    "docs/package.json",
+    "docs/bower.json"
+  ]
+}

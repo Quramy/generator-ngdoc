@@ -30,6 +30,7 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
+  /*
   writing: {
     app: function () {
       this.fs.copy(
@@ -53,8 +54,17 @@ module.exports = yeoman.generators.Base.extend({
       );
     }
   },
+    */
+
+  // Format props to template values
+  formatProps: require('./src/format'),
+
+  // Write files (copy, template)
+  writeFiles: require('./src/write'),
 
   install: function () {
+
+    process.chdir('docs');
     this.installDependencies({
       skipInstall: this.options['skip-install']
     });
