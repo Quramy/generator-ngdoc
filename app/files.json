@@ -1,5 +1,41 @@
 {
   "staticFiles": [
+
+    "docs/gulpfile.js",
+    "docs/gulp/dgeni.js",
+    "docs/gulp/docs.js",
+    "docs/gulp/module.js",
+    "docs/gulp/server.js",
+    "docs/gulp/wiredep.js",
+    
+    "docs/config/index.js",
+    "docs/config/processors/navigation.js",
+    "docs/config/templates/area-data.template.js",
+    "docs/config/templates/base.template.html",
+    "docs/config/templates/module.template.html",
+    "docs/config/templates/nav-data.template.js",
+    "docs/config/templates/runnableExample.template.html",
+
+    "docs/app/index.html",
+    "docs/app/src/a.directive.js",
+    "docs/app/src/docs.controller.js",
+    "docs/app/src/index.js",
+    "docs/app/src/main.html",
+    "docs/app/src/navbar.controller.js",
+    "docs/app/src/pre.directive.js",
+
+    "docs/app/styles/docs.css",
+    "docs/app/styles/github.css",
+    "docs/app/styles/runnableExample.css",
+
+    "docs/content/index.ngdoc",
+    "docs/content/api.ngdoc",
+    "docs/content/guide.ngdoc",
+    "docs/content/guide/howToUse.ngdoc",
+
+    "docs/lib/bowerCommonFiles.js"
+
+
   ],
   "dotFiles": [
     "gitignore"
@@ -8,6 +44,10 @@
     "package.json",
     "bower.json",
     "docs/package.json",
-    "docs/bower.json"
+    "docs/bower.json",
+
+    "docs/app/src/navbar.html",
+    "src/components/index.js",
+    "src/components/sample/sampleElem.directive.js"
   ]
 }

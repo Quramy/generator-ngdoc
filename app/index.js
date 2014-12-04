@@ -64,9 +64,17 @@ module.exports = yeoman.generators.Base.extend({
 
   install: function () {
 
-    process.chdir('docs');
+    var self = this;
     this.installDependencies({
-      skipInstall: this.options['skip-install']
+      // Install to project root directory.
+      skipInstall: this.options['skip-install'],
+      callback: function () {
+        process.chdir('docs');
+        // Install to 'docs' directory.
+        self.installDependencies({
+          skipInstall: self.options['skip-install']
+        });
+      }
     });
   }
 });

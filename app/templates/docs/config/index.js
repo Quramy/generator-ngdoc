@@ -27,7 +27,6 @@ module.exports = new Package('dgeni-ngdoc-example', [
   // Specify collections of source files that should contain the documentation to extract
   readFilesProcessor.sourceFiles = [{
       include: 'src/**/*.js',
-      //exclude: 'src/do-not-read.js',
       basePath: 'src'
     }, {
       include: 'docs/content/**/*.ngdoc',
@@ -42,7 +41,7 @@ module.exports = new Package('dgeni-ngdoc-example', [
   //templateFinder.templatePatterns.unshift('common.template.html');
 
   // Specify where the writeFilesProcessor will write our generated doc files
-  writeFilesProcessor.outputFolder  = '.tmp_docs';
+  writeFilesProcessor.outputFolder  = 'docs/.tmp_docs';
 })
 .config(function (renderDocsProcessor) {
   renderDocsProcessor.extraData.git = {
