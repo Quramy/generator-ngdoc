@@ -16,7 +16,6 @@
     "docs/config/templates/nav-data.template.js",
     "docs/config/templates/runnableExample.template.html",
 
-    "docs/app/index.html",
     "docs/app/src/a.directive.js",
     "docs/app/src/docs.controller.js",
     "docs/app/src/index.js",
@@ -42,11 +41,11 @@
     "gitignore"
   ],
   "templates": [
-    "package.json",
     "bower.json",
     "docs/package.json",
     "docs/bower.json",
 
+    "docs/app/index.html",
     "docs/app/src/navbar.html",
     "src/components/index.js",
     "src/components/sample/sampleElem.directive.js"

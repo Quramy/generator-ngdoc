@@ -2,10 +2,17 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var path = require('path');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
+    this.argument('moduleName', {
+      type: String,
+      required: false
+    });
     this.pkg = require('../package.json');
+    this.moduleName = this.moduleName || path.basename(process.cwd());
+    //this.moduleNameCamel = this._.camelize(this._.slugify(this._.humanize(this.moduleName)));
   },
 
   prompting: function () {
@@ -16,16 +23,23 @@ module.exports = yeoman.generators.Base.extend({
       'Welcome to the stunning' + chalk.red('Dgeni') + ' generator!'
     ));
 
-    var prompts = [{
+    var prompts = [
+      /*{
       type: 'confirm',
       name: 'someOption',
       message: 'Would you like to enable this option?',
       default: true
+    }, */{
+      type: 'input',
+      name: 'moduleName',
+      message: 'What name is your main module?',
+      default: this.moduleName
     }];
 
     this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
-
+      //this.someOption = props.someOption;
+      this.moduleName = props.moduleName;
+      this.moduleNameCamel = this._.camelize(this._.slugify(this._.humanize(this.moduleName)));
       done();
     }.bind(this));
   },

@@ -31,7 +31,7 @@ function browserSyncInit (baseDir, files, browser) {
 
 // If you modify ngdoc contents(in .js or .ngdoc), run Dgeni to rebuild partial htmls, and reload.
 // If you modify document app, reload only.
-gulp.task('docs:serve', ['dgeni', 'docs:docs', 'module'], function () {
+gulp.task('docs:serve', ['dgeni', 'docs:wiredep', 'module'], function () {
 	browserSyncInit(['.tmp', 'app'], ['app/*.html', 'app/src/**/*']);
 	gulp.watch(['config/templates/**/*', 'content/**/*', '../src/{app,components}/**/*.js'], ['dgeni', browserSync.reload]);
 	gulp.watch(['../src/{app,components}/**/*.js'], ['module']);

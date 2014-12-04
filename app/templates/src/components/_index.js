@@ -1,12 +1,13 @@
+'use strict';
+
 /**
  *
  * @ngdoc module
- * @name sample
- * @module sample
+ * @name <%= moduleNameCamel %>
+ * @module <%= moduleNameCamel %>
  * @description
  * This is a sample module.
  *
  **/
-'use strict';
-angular.module('sample', []);
+angular.module('<%= moduleNameCamel %>', []);
 

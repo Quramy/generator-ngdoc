@@ -1,7 +1,7 @@
 <nav class="navbar navbar-static-top navbar-inverse" ng-controller="NavbarCtrl as navbar">
   <div class="navbar-header">
     <a class="navbar-brand" href="#/index">
-      <span class="glyphicon glyphicon-home"></span> dgeniNgdocExample Docs
+      <span class="glyphicon glyphicon-home"></span> <%= moduleName %>&nbsp;Docs
     </a>
   </div>
 
@@ -10,8 +10,5 @@
 			<li ng-repeat="area in navbar.areas" ng-class="{active:docs.currentArea.id === area.id}"><a ng-href="{{area.href}}" >{{area.name}}</a></li>
     </ul>
 
-    <ul class="nav navbar-nav navbar-right">
-      <li>Current date: {{ date | date:'yyyy-MM-dd' }}</li>
-    </ul>
   </div>
 </nav>

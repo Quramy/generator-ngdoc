@@ -3,7 +3,7 @@
 /**
  *
  * @ngdoc directive
- * @module sample
+ * @module <%= moduleNameCamel %>
  * @name sampleElem
  * @restrict E
  * @description 
@@ -15,12 +15,12 @@
         <sample-elem></sample-elem>
       </file>
       <file name="main.js">
-        angular.module('sampleElemExample', ['sample']);
+        angular.module('sampleElemExample', ['<%= moduleNameCamel %>']);
       </file>
     </example>
  *
  **/
-angular.module('sample').directive('sampleElem', function () {
+angular.module('<%= moduleNameCamel %>').directive('sampleElem', function () {
   return {
     restrict: 'E',
     template: '<div class="sample-awesome">Hello, AngularJS directive!</div>'
