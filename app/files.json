@@ -2,6 +2,7 @@
   "staticFiles": [
 
     "docs/gulpfile.js",
+    "docs/gulp/build.js",
     "docs/gulp/dgeni.js",
     "docs/gulp/docs.js",
     "docs/gulp/module.js",
@@ -33,8 +34,9 @@
     "docs/content/guide.ngdoc",
     "docs/content/guide/howToUse.ngdoc",
 
-    "docs/lib/bowerCommonFiles.js"
+    "docs/lib/bowerCommonFiles.js",
 
+    "src/components/sample/sample.css"
 
   ],
   "dotFiles": [

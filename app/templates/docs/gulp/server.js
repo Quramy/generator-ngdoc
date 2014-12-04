@@ -13,7 +13,7 @@ function browserSyncInit(baseDir, files, browser) {
 
   var routes = null;//, forwardIndexPrefix;
   //var isDebug = baseDir === 'src' || (util.isArray(baseDir) && baseDir.indexOf('src') !== -1);
-  var isDoc = baseDir === '.tmp_docs' || (util.isArray(baseDir) && baseDir.indexOf('.tmp_docs') !== -1);
+  var isDoc = baseDir === '.tmp' || (util.isArray(baseDir) && baseDir.indexOf('.tmp') !== -1);
   /*
   if(isDebug){
     routes = {
@@ -59,7 +59,7 @@ function browserSyncInit(baseDir, files, browser) {
 }
 
 gulp.task('serve:docs', ['dgeni', 'wiredep:docs', 'module'], function(){
-	browserSyncInit(['.tmp_docs', 'app'], ['app/*.html', 'app/src/**/*']);
+	browserSyncInit(['.tmp', 'app'], ['app/*.html', 'app/src/**/*']);
 	gulp.watch(['config/templates/**/*', 'content/**/*', '../src/{app,components}/**/*.js'], ['dgeni', browserSync.reload]);
 	gulp.watch(['../src/{app,components}/**/*.js'], ['module']);
 });

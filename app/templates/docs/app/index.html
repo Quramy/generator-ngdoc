@@ -7,12 +7,12 @@
 		<title>docs</title>
     <meta charset="utf-8"></meta>
 
-    <!-- build:css({docs/app,.tmp,src}) styles/vendor.css -->
+    <!-- build:css({app,.tmp,src}) styles/vendor.css -->
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
-    <!-- build:css({.tmp,src,docs/app}) styles/app.css -->
+    <!-- build:css({.tmp,src,app}) styles/app.css -->
     <link rel="stylesheet" href="styles/docs.css" />
     <link rel="stylesheet" href="styles/runnableExample.css" />
     <link rel="stylesheet" href="styles/github.css" />
@@ -25,12 +25,12 @@
 			<div ng-include="'src/main.html'"></div>
 		</div>
 
-		<!-- build:js({docs/app,.tmp_docs}) scripts/vendor.js -->
+		<!-- build:js({app,.tmp}) scripts/vendor.js -->
     <!-- bower:js -->
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- build:js({docs/app,.tmp_docs}) scripts/app.js -->
+    <!-- build:js({app,.tmp}) scripts/app.js -->
 		<!-- inject:env_ignore -->
     <!-- endinject -->
 		<script src="src/index.js"></script>

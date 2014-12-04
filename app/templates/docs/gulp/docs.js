@@ -5,7 +5,7 @@ var $ = require('gulp-load-plugins')({
 });
 
 gulp.task('partials:docs', ['dgeni'], function () {
-	return gulp.src(['docs/app/{src,.tmp}/**/*.html', '.tmp_docs/{partials,.tmp}/**/*.html'])
+	return gulp.src(['app/{src,.tmp}/**/*.html', '.tmp/{partials,.tmp}/**/*.html'])
 		.pipe($.minifyHtml({
 			empty: true,
 			spare: true,
@@ -14,15 +14,15 @@ gulp.task('partials:docs', ['dgeni'], function () {
     .pipe($.ngHtml2js({
       moduleName: 'docApp'
     }))
-		.pipe(gulp.dest('.tmp_docs/partials'))
+		.pipe(gulp.dest('.tmp/partials'))
 		.pipe($.size());
 });
 
 gulp.task('html:docs', ['wiredep:docs', 'partials:docs'], function(){
 	var assets;
   var jsFilter = $.filter('**/*.js');
-	return gulp.src(['docs/app/index.html'])
-    .pipe($.inject(gulp.src('.tmp_docs/partials/**/*.js'), {
+	return gulp.src(['app/index.html'])
+    .pipe($.inject(gulp.src('.tmp/partials/**/*.js'), {
       read: false,
       starttag: '<!-- inject:partials -->',
       addRootSlash: false,
@@ -48,15 +48,15 @@ gulp.task('html:docs', ['wiredep:docs', 'partials:docs'], function(){
 });
 
 gulp.task('examples:docs', ['dgeni'], function(){
-	return gulp.src(['.tmp_docs/{*.js,examples/**/*}'])
+	return gulp.src(['.tmp/{*.js,examples/**/*}'])
 		.pipe(gulp.dest('dist_docs'))
 		.pipe($.size());
 });
 
 gulp.task('fonts:docs', function () {
   return gulp.src($.mainBowerFiles({
-			bowerDirectory: 'docs/bower_components',
-			bowerJson: 'docs/bower.json'
+			bowerDirectory: 'bower_components',
+			bowerJson: 'bower.json'
 		}))
     .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
     .pipe($.flatten())
