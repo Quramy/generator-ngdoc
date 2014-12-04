@@ -24,7 +24,7 @@ gulp.task('module:scripts:dist', [], function () {
   ])
 		.pipe($.ngAnnotate())
 		.pipe($.concat('modules.js'))
-		.pipe(gulp.dest('dist_docs'))
+		.pipe(gulp.dest('dist'))
 		.pipe($.size());
 });
 
@@ -39,7 +39,7 @@ gulp.task('module:styles', [], function (){
 gulp.task('module:styles:dist', [], function () {
   return gulp.src(['../src/**/*.css'])
 		.pipe($.concat('modules.css'))
-		.pipe(gulp.dest('dist_docs'))
+		.pipe(gulp.dest('dist'))
 		.pipe($.size());
 });
 

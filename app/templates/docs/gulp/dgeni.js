@@ -48,7 +48,7 @@ gulp.task('dgeni', function (done){
   });
 });
 
-gulp.task('copy_dependencies:examples', function () {
+gulp.task('docs:copy_dependencies', function () {
 	var depPath = deployment.examples.dependencyPath;
 	var scripts = bowerFiles.scripts || [];
   var stylesheets = bowerFiles.stylesheets || [];
@@ -59,7 +59,7 @@ gulp.task('copy_dependencies:examples', function () {
 	});
 
 	return gulp.src(deps, {base: 'bower_components'})
-		.pipe(gulp.dest('dist_docs/deps'))
+		.pipe(gulp.dest('dist/deps'))
 		.pipe($.size());
 });
 

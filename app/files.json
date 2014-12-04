@@ -4,7 +4,6 @@
     "docs/gulpfile.js",
     "docs/gulp/build.js",
     "docs/gulp/dgeni.js",
-    "docs/gulp/docs.js",
     "docs/gulp/module.js",
     "docs/gulp/server.js",
     "docs/gulp/wiredep.js",

@@ -4,6 +4,6 @@ var gulp = require('gulp');
 
 require('require-dir')('./gulp');
 
-gulp.task('default', ['clean'], function () {
-    gulp.start('build');
+gulp.task('default', ['docs:clean'], function () {
+    gulp.start('docs:build');
 });
