@@ -6,6 +6,7 @@ var $ = require('gulp-load-plugins')({
 
 var _ = require('lodash');
 var Dgeni = require('dgeni');
+var path = require('canonical-path');
 
 // 
 // 'BowerCommonFiles' creates an object such as:
@@ -39,14 +40,36 @@ var dgeniGenerate = function () {
   try {
     // Prease see also 'docs/config/index.js'.
     var dgeni = new Dgeni([require('../config/')
+      .config(function (readFilesProcessor, writeFilesProcessor) {
+
+        // Specify the base path used when resolving relative paths to source and output files
+        readFilesProcessor.basePath = path.resolve(__dirname, '../..');
+
+        // Specify collections of source files that should contain the documentation to extract
+        readFilesProcessor.sourceFiles = [{include: 'src/**/*.js', basePath: 'src'}, {include: 'docs/content/**/*.ngdoc',basePath: 'docs/content'}];
+
+        //templateFinder.templateFolders.unshift(path.resolve(__dirname, 'templates'));
+        writeFilesProcessor.outputFolder  = 'docs/.tmp';
+      })
+      .config(function (renderDocsProcessor) {
+        renderDocsProcessor.extraData.deploymentTarget = 'default';
+        renderDocsProcessor.extraData.git = {
+          info: {
+            owner: '<%= ownerName %>',
+            repo: '<%= moduleName %>'
+          },
+          version: {
+            isSnapshot: true
+          }
+        };
+      })
       .config(function (generateExamplesProcessor, generateProtractorTestsProcessor){
         generateExamplesProcessor.deployments = [deployment];
         generateProtractorTestsProcessor.deployments = [deployment];
       })
-      .config(function (renderDocsProcessor) {
-        renderDocsProcessor.extraData.deploymentTarget = 'default';
-      })
     ]);
+
+
     return dgeni.generate();
   } catch(x) {
     console.log(x.stack);

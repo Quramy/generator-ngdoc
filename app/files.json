@@ -3,7 +3,6 @@
 
     "docs/gulpfile.js",
     "docs/gulp/build.js",
-    "docs/gulp/dgeni.js",
     "docs/gulp/module.js",
     "docs/gulp/server.js",
     "docs/gulp/wiredep.js",
@@ -19,7 +18,6 @@
     "docs/app/src/a.directive.js",
     "docs/app/src/docs.controller.js",
     "docs/app/src/index.js",
-    "docs/app/src/main.html",
     "docs/app/src/navbar.controller.js",
     "docs/app/src/pre.directive.js",
 
@@ -45,7 +43,10 @@
     "docs/package.json",
     "docs/bower.json",
 
+    "docs/gulp/dgeni.js",
+
     "docs/app/index.html",
+    "docs/app/src/main.html",
     "docs/app/src/navbar.html",
     "src/components/index.js",
     "src/components/sample/sampleElem.directive.js"

@@ -3,6 +3,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var path = require('path');
+var fs = require('fs');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -12,7 +13,7 @@ module.exports = yeoman.generators.Base.extend({
     });
     this.pkg = require('../package.json');
     this.moduleName = this.moduleName || path.basename(process.cwd());
-    //this.moduleNameCamel = this._.camelize(this._.slugify(this._.humanize(this.moduleName)));
+    this.hasBowerJson = fs.existsSync('bower.json');
   },
 
   prompting: function () {
@@ -20,58 +21,29 @@ module.exports = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the stunning' + chalk.red('Dgeni') + ' generator!'
+      chalk.red('Welcome!') + '\n' +
+      chalk.yellow('You\'re using the fantastic generator for scaffolding ngDoc document application!')
     ));
 
-    var prompts = [
-      /*{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
-    }, */{
+    var prompts = [{
       type: 'input',
       name: 'moduleName',
       message: 'What name is your main module?',
       default: this.moduleName
+    }, {
+      type: 'input',
+      name: 'ownerName',
+      message: 'What name is github owner of this repository?',
+      default: this.moduleName + '-owner'
     }];
 
     this.prompt(prompts, function (props) {
-      //this.someOption = props.someOption;
       this.moduleName = props.moduleName;
+      this.ownerName = props.ownerName;
       this.moduleNameCamel = this._.camelize(this._.slugify(this._.humanize(this.moduleName)));
       done();
     }.bind(this));
   },
-
-  /*
-  writing: {
-    app: function () {
-      this.fs.copy(
-        this.templatePath('_package.json'),
-        this.destinationPath('package.json')
-      );
-      this.fs.copy(
-        this.templatePath('_bower.json'),
-        this.destinationPath('bower.json')
-      );
-    },
-
-    projectfiles: function () {
-      this.fs.copy(
-        this.templatePath('editorconfig'),
-        this.destinationPath('.editorconfig')
-      );
-      this.fs.copy(
-        this.templatePath('jshintrc'),
-        this.destinationPath('.jshintrc')
-      );
-    }
-  },
-    */
-
-  // Format props to template values
-  formatProps: require('./src/format'),
 
   // Write files (copy, template)
   writeFiles: require('./src/write'),
@@ -79,14 +51,26 @@ module.exports = yeoman.generators.Base.extend({
   install: function () {
 
     var self = this;
+    
+    if(this.hasBowerJson){
+      this.log('I found ' + chalk.green('bower.json') + ', so skip bower install.'); 
+    }
+    // Install to project root directory.
     this.installDependencies({
-      // Install to project root directory.
-      skipInstall: this.options['skip-install'],
+      bower: true,
+      npm: false,
+      skipInstall: this.options['skip-install'] || this.hasBowerJson,
+      skipMessage: this.hasBowerJson,
       callback: function () {
         process.chdir('docs');
+        if(!self.options['skip-install']){
+          self.log('Runnnig ' + chalk.yellow.bold('bower install & npm install') + ' for docs application.'
+                   + 'These dependencies will be installed under ' + chalk.green('docs') + ' directory.');
+        }
         // Install to 'docs' directory.
         self.installDependencies({
-          skipInstall: self.options['skip-install']
+          skipInstall: self.options['skip-install'],
+          skipMessage: true
         });
       }
     });
