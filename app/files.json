@@ -49,6 +49,7 @@
     "docs/app/src/main.html",
     "docs/app/src/navbar.html",
     "src/components/index.js",
-    "src/components/sample/sampleElem.directive.js"
+    "src/components/sample/sampleElem.directive.js",
+    "src/components/sample/sampleService.provider.js"
   ]
 }
