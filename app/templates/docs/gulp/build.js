@@ -5,6 +5,8 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
 });
+
+// Template Cache.
 gulp.task('docs:partials', ['dgeni'], function () {
 	return gulp.src(['app/{src,.tmp}/**/*.html', '.tmp/{partials,.tmp}/**/*.html'])
 		.pipe($.minifyHtml({
@@ -19,6 +21,7 @@ gulp.task('docs:partials', ['dgeni'], function () {
 		.pipe($.size());
 });
 
+// Build index.html.
 gulp.task('docs:html', ['docs:wiredep', 'docs:partials'], function(){
 	var assets;
   var jsFilter = $.filter('**/*.js');
@@ -48,12 +51,14 @@ gulp.task('docs:html', ['docs:wiredep', 'docs:partials'], function(){
 		.pipe($.size());
 });
 
+// Copy example files.
 gulp.task('docs:examples', ['dgeni'], function(){
 	return gulp.src(['.tmp/{*.js,examples/**/*}'])
 		.pipe(gulp.dest('dist'))
 		.pipe($.size());
 });
 
+// Copy fonts.
 gulp.task('docs:fonts', function () {
   return gulp.src($.mainBowerFiles({
 			bowerDirectory: 'bower_components',

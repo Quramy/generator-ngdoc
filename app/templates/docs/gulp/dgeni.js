@@ -7,11 +7,22 @@ var $ = require('gulp-load-plugins')({
 var _ = require('lodash');
 var Dgeni = require('dgeni');
 
+// 
+// 'BowerCommonFiles' creates an object such as:
+// {
+//    scripts: ['../../deps/angular/angular.js', '../../deps/jquery/dist/jquery.js'],
+//    stylesheets: ['../../deps/bootstrap/bootstrap.css']
+// }
+//
 var bowerFiles = require('../lib/bowerCommonFiles')({
   base: '../../deps',
   exclude: [/bootstrap.js/],
   bowerJson: require('../bower.json')
-}), deployment = {
+});
+
+// Create deployment definition of dgeni example package.
+// (https://github.com/angular/dgeni-packages#examples-package)
+var deployment = {
   name: 'default',
   examples: {
 
@@ -26,6 +37,7 @@ var bowerFiles = require('../lib/bowerCommonFiles')({
  
 var dgeniGenerate = function () {
   try {
+    // Prease see also 'docs/config/index.js'.
     var dgeni = new Dgeni([require('../config/')
       .config(function (generateExamplesProcessor, generateProtractorTestsProcessor){
         generateExamplesProcessor.deployments = [deployment];
@@ -42,12 +54,14 @@ var dgeniGenerate = function () {
   }
 };
 
+// Run dgeni to generate documents.
 gulp.task('dgeni', function (done){
   dgeniGenerate().then(function () {
     done();
   });
 });
 
+// Copy bower components that examples use to distination.
 gulp.task('docs:copy_dependencies', function () {
 	var depPath = deployment.examples.dependencyPath;
 	var scripts = bowerFiles.scripts || [];

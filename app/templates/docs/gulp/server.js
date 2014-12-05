@@ -29,6 +29,7 @@ function browserSyncInit (baseDir, files, browser) {
 	});
 }
 
+// Run document application on server for development purposes.
 // If you modify ngdoc contents(in .js or .ngdoc), run Dgeni to rebuild partial htmls, and reload.
 // If you modify document app, reload only.
 gulp.task('docs:serve', ['dgeni', 'docs:wiredep', 'module'], function () {
@@ -37,6 +38,7 @@ gulp.task('docs:serve', ['dgeni', 'docs:wiredep', 'module'], function () {
 	gulp.watch(['../src/{app,components}/**/*.js'], ['module']);
 });
 
+// Run document applicaton on server.
 gulp.task('docs:serve:dist', ['docs:build'], function () {
 	browserSyncInit('dist');
 });

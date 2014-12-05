@@ -20,7 +20,10 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "angular",
+    "ngdoc",
+    "dgeni"
   ],
   "dependencies": {
     "yeoman-generator": "^0.18.0",
