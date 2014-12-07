@@ -1,12 +1,12 @@
 {
-  "name": "generator-dgeni",
+  "name": "generator-ngdoc",
   "version": "0.0.0",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "Quramy/generator-dgeni",
+  "repository": "Quramy/generator-ngdoc",
   "author": {
-    "name": "y-kurami",
+    "name": "quramy",
     "email": "yosuke.kurami@gmail.com",
     "url": "https://github.com/Quramy"
   },
