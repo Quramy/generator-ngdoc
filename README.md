@@ -11,7 +11,7 @@ This generator scaffolds:
 As the originator, I want to write documents of my AngualrJS module in ngDoc notation and to publish them as a web application.
 
 ## Demo site
-comming soon.
+[Here](https://quramy.github.io/example-of-generator-ngdoc/index.html Here) is a demo site generated with this generator. 
 
 ## Usage
 
