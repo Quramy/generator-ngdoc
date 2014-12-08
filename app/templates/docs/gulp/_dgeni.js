@@ -15,10 +15,16 @@ var path = require('canonical-path');
 //    stylesheets: ['../../deps/bootstrap/bootstrap.css']
 // }
 //
+// This object contains paths of bower dependencies configured by not '(root)/docs/bower.json' but '(root)/bower.json'.
+//
+//
 var bowerFiles = require('../lib/bowerCommonFiles')({
   base: '../../deps',
   exclude: [/bootstrap.js/],
-  bowerJson: require('../bower.json')
+  paths: {
+    bowerDirectory: '../bower_components',
+    bowerJson: '../bower.json'
+  }
 });
 
 // Create deployment definition of dgeni example package.
