@@ -1,4 +1,4 @@
-# generator-ngdoc
+# generator-ngdoc [![Build Status](https://travis-ci.org/Quramy/generator-ngdoc.svg)](https://travis-ci.org/Quramy/generator-ngdoc)
 
 This is a Yeoman generator for documentation of AngularJS modules.
 
