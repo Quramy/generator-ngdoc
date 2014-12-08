@@ -20,3 +20,4 @@ deploy:
   on:
     tags: true
     repo: Quramy/generator-ngdoc
+    all_branches: true
