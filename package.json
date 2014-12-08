@@ -1,6 +1,6 @@
 {
   "name": "generator-ngdoc",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
@@ -14,7 +14,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "gulp test"
   },
   "files": [
     "app"
@@ -31,6 +31,12 @@
     "yosay": "^0.3.0"
   },
   "devDependencies": {
+    "gulp": "^3.8.0",
+    "gulp-jshint": "^1.8.0",
+    "gulp-load-plugins": "^0.6.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-size": "^1.1.0",
+    "jshint-stylish": "^0.4.0",
     "mocha": "*"
   },
   "peerDependencies": {
