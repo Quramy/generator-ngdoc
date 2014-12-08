@@ -39,7 +39,7 @@ angular.module('docApp').controller('DocsCtrl', function($scope, $location, DOCS
 
 	};
 
-	$scope.$on('$locationChangeStart', function(e, arg){
+	$scope.$on('$locationChangeStart', function(){
 		docs.changeCurrent($location.path(), $location.hash());
 	});
 

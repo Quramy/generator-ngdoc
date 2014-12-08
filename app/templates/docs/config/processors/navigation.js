@@ -12,9 +12,8 @@ module.exports = function generateNavigationProcessor(log) {
 	};
 
 	var mappers = {
-		api: function (pages, key) {
+		api: function (pages) {
 			var res = [];
-
 
 			_(pages)
 			.filter('module').groupBy('module').forEach(function (components, moduleName) {
@@ -53,11 +52,12 @@ module.exports = function generateNavigationProcessor(log) {
 			debug(res);
 			return res;
 		},
+
 		guide: function (pages, key) {
 			var res = {
 				name: 'Guide',
 				type: 'groups',
-				href: 'guide',
+				href: key,
 				navItems: []
 			};
 

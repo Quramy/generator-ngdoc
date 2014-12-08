@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 
 var $ = require('gulp-load-plugins')({
@@ -96,7 +98,7 @@ gulp.task('docs:copy_dependencies', function () {
 	var scripts = bowerFiles.scripts || [];
   var stylesheets = bowerFiles.stylesheets || [];
 	var deps = _.union(scripts, stylesheets).filter(function (it) {
-		return it.match(depPath)
+		return it.match(depPath);
 	}).map(function (it) {
 		return it.replace(depPath, 'bower_components');
 	});

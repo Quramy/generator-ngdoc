@@ -64,8 +64,7 @@ module.exports = yeoman.generators.Base.extend({
       callback: function () {
         process.chdir('docs');
         if(!self.options['skip-install']){
-          self.log('Runnnig ' + chalk.yellow.bold('bower install & npm install') + ' for docs application.'
-                   + 'These dependencies will be installed under ' + chalk.green('docs') + ' directory.');
+          self.log('Runnnig ' + chalk.yellow.bold('bower install & npm install') + ' for docs application.' + 'These dependencies will be installed under ' + chalk.green('docs') + ' directory.');
         }
         // Install to 'docs' directory.
         self.installDependencies({

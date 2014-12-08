@@ -15,7 +15,7 @@ angular.module('docApp').directive('a', function (DOCS_OVERWRITELINK, DOCS_AREA_
   };
   return {
     restrict: 'E',
-    link: function ($scope, $elem, $attrs) {
+    link: function ($scope, $elem) {
       if(!DOCS_OVERWRITELINK){
         return;
       }
