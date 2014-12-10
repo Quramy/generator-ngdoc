@@ -33,6 +33,6 @@ module.exports = function () {
       basename = path.basename(dest);
       src = dest.replace(basename, '_' + basename);
       this.template(src, dest, this);
-    })(files.bowerJson);
+    }.bind(this))(files.bowerJson);
   }
 };
