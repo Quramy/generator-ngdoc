@@ -36,10 +36,10 @@
 
   ],
   "dotFiles": [
-    "gitignore"
+    "gitignore",
+    "docs/bowerrc"
   ],
   "templates": [
-    "bower.json",
     "docs/package.json",
     "docs/bower.json",
 
@@ -51,5 +51,7 @@
     "src/components/index.js",
     "src/components/sample/sampleElem.directive.js",
     "src/components/sample/sampleService.provider.js"
-  ]
+  ],
+
+  "bowerJson": "bower.json"
 }

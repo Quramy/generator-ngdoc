@@ -24,8 +24,8 @@ var bowerFiles = require('../lib/bowerCommonFiles')({
   base: '../../deps',
   exclude: [/bootstrap.js/],
   paths: {
-    bowerDirectory: '../bower_components',
-    bowerJson: '../bower.json'
+    bowerDirectory: './bower_components',
+    bowerJson: './bower.json'
   }
 });
 
