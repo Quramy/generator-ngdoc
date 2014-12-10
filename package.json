@@ -1,6 +1,6 @@
 {
   "name": "generator-ngdoc",
-  "version": "0.1.3.1",
+  "version": "0.1.4",
   "description": "Yeoman generator for AngularJS ngdoc documentation.",
   "license": "MIT",
   "main": "app/index.js",
