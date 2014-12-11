@@ -89,6 +89,8 @@ var dgeniGenerate = function () {
 gulp.task('dgeni', function (done){
   dgeniGenerate().then(function () {
     done();
+  }).fail(function () {
+    done();
   });
 });
 
