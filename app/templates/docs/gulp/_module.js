@@ -18,11 +18,24 @@ gulp.task('module:scripts', [], function(){
 		.pipe($.size());
 });
 
-gulp.task('module:scripts:dist', [], function () {
+gulp.task('module:partials', [], function () {
+  return gulp.src([
+    '../src/{app,components}/**/*.html'
+  ])
+    .pipe($.ngHtml2js({
+      moduleName: '<%= moduleNameCamel %>',
+      prefix: '/'
+    }))
+    .pipe(gulp.dest('.tmp/.module-partials'))
+    .pipe($.size());
+});
+
+gulp.task('module:scripts:dist', ['module:partials'], function () {
   return gulp.src([
     // Add your javascript sources' path, ordering to top the source file that contains the module definition.
     '../src/components/index.js',   // This file includes the module definition.
-    '../src/**/*.js'
+    '../src/**/*.js',
+    '.tmp/.module-partials/**/*.js'
   ])
 		.pipe($.ngAnnotate())
 		.pipe($.concat('modules.js'))

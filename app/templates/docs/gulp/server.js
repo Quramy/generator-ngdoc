@@ -9,12 +9,14 @@ function browserSyncInit (baseDir, files, browser) {
   browser = browser === undefined ? 'default' : browser;
 
   var routes = null;
-  var isDoc = baseDir === '.tmp' || (util.isArray(baseDir) && baseDir.indexOf('.tmp') !== -1);
+  var isDebug = baseDir === '.tmp' || (util.isArray(baseDir) && baseDir.indexOf('.tmp') !== -1);
   
-	if(isDoc){
+	if(isDebug){
 		routes = {
 			'/bower_components': 'bower_components',
-			'/deps': 'bower_components'
+			'/deps': '../bower_components',
+      '/components': '../src/components',
+      '/app': '../src/app'
     };
 	}
 

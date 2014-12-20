@@ -23,6 +23,6 @@
 angular.module('<%= moduleNameCamel %>').directive('sampleElem', function () {
   return {
     restrict: 'E',
-    template: '<div class="sample-awesome">Hello, AngularJS directive!</div>'
+    templateUrl: '/components/sample/sampleElem.html'
   };
 });
