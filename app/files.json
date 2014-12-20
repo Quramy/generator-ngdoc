@@ -9,11 +9,13 @@
     
     "docs/config/index.js",
     "docs/config/processors/navigation.js",
+    "docs/config/processors/structuredParam.js",
     "docs/config/templates/area-data.template.js",
     "docs/config/templates/base.template.html",
     "docs/config/templates/module.template.html",
     "docs/config/templates/nav-data.template.js",
     "docs/config/templates/runnableExample.template.html",
+    "docs/config/templates/lib/macros.html",
 
     "docs/app/src/a.directive.js",
     "docs/app/src/docs.controller.js",

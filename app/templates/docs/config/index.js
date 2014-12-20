@@ -15,6 +15,7 @@ module.exports = new Package('dgeniDocs', [
 ])
 
 .processor(require('./processors/navigation'))
+.processor(require('./processors/structuredParam'))
 
 // Configure our dgeni-example package. We can ask the Dgeni dependency injector
 // to provide us with access to services and processors that we wish to configure
