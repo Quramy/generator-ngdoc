@@ -5,7 +5,7 @@ module.exports = function structuredParamProcessor (log) {
   var _ = require('lodash');
 
   var debug = function () {
-    log.info.apply(this, arguments);
+    log.debug.apply(this, arguments);
   };
 
   var processParams = function (params) {
@@ -29,6 +29,7 @@ module.exports = function structuredParamProcessor (log) {
         newParams.push(param);
       }
     });
+    debug('parameters: ', newParams);
     return newParams;
   };
 
