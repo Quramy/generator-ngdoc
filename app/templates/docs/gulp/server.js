@@ -42,6 +42,6 @@ gulp.task('docs:serve', ['dgeni', 'docs:wiredep', 'module'], function () {
 
 // Run document applicaton on server.
 gulp.task('docs:serve:dist', ['docs:build'], function () {
-	browserSyncInit('dist');
+	browserSyncInit('dist', ['dist/**/*.html']);
 });
 

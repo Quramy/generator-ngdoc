@@ -53,7 +53,8 @@
     "docs/app/src/navbar.html",
     "src/components/index.js",
     "src/components/sample/sampleElem.directive.js",
-    "src/components/sample/sampleService.provider.js"
+    "src/components/sample/sampleService.provider.js",
+    "src/components/sample/sampleFilter.filter.js"
   ],
 
   "bowerJson": "bower.json"
